@@ -1,14 +1,19 @@
 # Summer Chores Simulator
 
-This exercise simulates a person's Saturday summer chore routine using asynchronous JavaScript and callback functions.
+This exercise simulates a person's Saturday summer chore routine using asynchronous JavaScript.
 
-The simulation follows a strict order of chores. At each step, the person becomes more tired and may fall asleep, preventing them from completing the remaining chores.
+There are **two versions** of the solution:
+
+- `callbackVersion.js` — uses **callback functions**
+- `promiseVersion.js` — uses **Promises**
+
+In both versions, the simulation follows a strict order of chores. At each step, the person becomes more tired and may fall asleep, preventing them from completing the remaining chores.
 
 ---
 
 ## Exercise Description
 
-Someone has a list of summer chores they have to do every Saturday. There are a lot of chores for them to do and naturally get more tired throughout completing their tasks. If they get too tired, they may fall asleep before completing all their chores.
+Someone has a list of summer chores they have to do every Saturday. There are a lot of chores for them to do and they naturally get more tired as they work. If they get too tired, they may fall asleep before completing all their chores.
 
 They have a strict routine, which follows in order:
 
@@ -18,81 +23,63 @@ They have a strict routine, which follows in order:
 4. Collect fallen wood for summer night fires  
 5. Water the garden
 
-If they manage not to get tired and fall asleep while doing their chores, they have successfully completed their chores. Also, there's never a chance of the person falling asleep before mowing the yard.
-
-## Requirements and Information
-
-The time to complete each chore is an arbitrarily selected value for the purpose of the exercise. They are the following:
-
-### Time to Complete Chores
-
-| Chore               | Time to Complete (in milliseconds) |
-|---------------------|------------------------------------|
-| Mow the yard        | 2000 ms                           |
-| Weed eat the yard   | 1500 ms                           |
-| Trim the hedges     | 1000 ms                           |
-| Collect fallen wood | 2500 ms                           |
-| Water the garden    | 500 ms                            |
-
-### Required Functions
-
-#### `mowYard(name, callback)`  
-A function that takes in a person's name and a callback function.  
-When the chore is complete, logs:  
-`"PERSON'S NAME mowed the yard."`
+If they manage not to get tired and fall asleep while doing their chores, they have successfully completed their tasks. There is **no chance** of falling asleep before mowing the yard.
 
 ---
 
-#### `weedEat(name, callback)`  
-A function that takes in a person's name and a callback function.  
-If the chore is completed, logs:  
-`"PERSON'S NAME finished using the weed eater."`  
-Otherwise, logs:  
-`"PERSON'S NAME fell asleep after mowing the yard."`
+## Time to Complete Chores
+
+| Chore               | Time to Complete (ms) |
+|---------------------|-----------------------|
+| Mow the yard        | 2000 ms               |
+| Weed eat the yard   | 1500 ms               |
+| Trim the hedges     | 1000 ms               |
+| Collect fallen wood | 2500 ms               |
+| Water the garden    | 500 ms                |
 
 ---
 
-#### `trimHedges(name, callback)`  
-A function that takes in a person's name and a callback function.  
-If the chore is completed, logs:  
-`"PERSON'S NAME finished trimming the hedges."`  
-Otherwise, logs:  
-`"PERSON'S NAME fell asleep after weed eating the yard."`
+## Versions
 
----
+### `callbackVersion.js`
 
-#### `collectWood(name, callback)`  
-A function that takes in a person's name and a callback function.  
-If the chore is completed, logs:  
-`"PERSON'S NAME finished collecting wood."`  
-Otherwise, logs:  
-`"PERSON'S NAME fell asleep after trimming the hedges."`
+Implements the simulation using traditional **callback functions** to manage asynchronous operations.
 
----
+Each function takes in a person's name and a callback. On completion or failure, the appropriate message is logged.
 
-#### `waterGarden(name, callback)`  
-A function that takes in a person's name and a callback function.  
-If the chore is completed, logs:  
-`"PERSON'S NAME finished watering the garden."`  
-Otherwise, logs:  
-`"PERSON'S NAME fell asleep after collecting wood."`
+Sample command:
 
----
+```bash
+node callbackVersion.js
+```
 
-#### `doSummerChores(name)`  
-A function that takes in a person's name as an argument.  
-It starts the chore sequence by calling `mowYard`, then continues through the rest using callbacks.  
-If all chores are completed, logs:  
-`"PERSON'S NAME finished all their chores!"`
+### `promiseVersion.js`
+
+Implements the simulation using JavaScript Promises. Chores are chained using .then() and errors (such as falling asleep) are handled with .catch().
+
+This version provides improved readability and avoids "callback hell."
+
+Sample command:
+
+```bash
+node promiseVersion.js
+```
 
 ## Requirements to run
 
 - [Node.js](https://nodejs.org/) installed
 
-### Steps
+### Running the Project
 
 1. Open a terminal.  
-2. Run the file with:
+2. Run either version with one of the following commands:
 
 ```bash
 node callbackVersion.js
+```
+
+or
+
+```bash
+node promiseVersion.js
+```

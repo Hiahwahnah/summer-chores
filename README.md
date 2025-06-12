@@ -2,12 +2,13 @@
 
 This exercise simulates a person's Saturday summer chore routine using asynchronous JavaScript.
 
-There are **two versions** of the solution:
+There are **three versions** of the solution:
 
 - `callbackVersion.js` — uses **callback functions**
 - `promiseVersion.js` — uses **Promises**
+- `asyncAwaitVersion.js` — uses **async/await**
 
-In both versions, the simulation follows a strict order of chores. At each step, the person becomes more tired and may fall asleep, preventing them from completing the remaining chores.
+In all versions, the simulation follows a strict order of chores. At each step, the person becomes more tired and may fall asleep, preventing them from completing the remaining chores.
 
 ---
 
@@ -65,6 +66,18 @@ Sample command:
 node promiseVersion.js
 ```
 
+### `asyncAwaitVersion.js`
+
+Implements the simulation using async/await for a more synchronous-looking flow with centralized error handling using try/catch.
+
+This version is the cleanest and easiest to follow for sequential asynchronous logic.
+
+Run with:
+
+```bash
+node asyncAwaitVersion.js
+```
+
 ## Requirements to run
 
 - [Node.js](https://nodejs.org/) installed
@@ -72,14 +85,7 @@ node promiseVersion.js
 ### Running the Project
 
 1. Open a terminal.  
-2. Run either version with one of the following commands:
-
-```bash
-node callbackVersion.js
-```
-
-or
-
-```bash
-node promiseVersion.js
-```
+2. Run any version with one of the following commands:
+   - `node callbackVersion.js`
+   - `node promiseVersion.js`
+   - `node asyncAwaitVersion.js`
